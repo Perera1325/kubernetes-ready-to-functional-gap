@@ -288,7 +288,7 @@ The two agree in kind for application degradation and dependency restart, and di
 On a real three-node Kubernetes cluster, a Pod with a shallow readiness probe repeatedly stayed Ready while failing real requests for seconds, with failures that looked like successful HTTP replies. A deep probe narrowed the gap but, with a shared dependency, withdrew all replicas and failed content that did not need the dependency. A passive observer saw the problem within 0.05--0.15\,s without altering readiness. A simulation I had trusted was wrong in sign for one effect, which is the reason to measure on the real system. Next steps: more repetitions, other probe periods (including a 10\,s sweep), kube-proxy programming latency, a larger cluster, an investigation of the 8\,s spread between identical shallow arms and of the start-up errors, and a systematic literature review.
 
 \section*{Data and code availability}
-The pilot's raw per-run files, the 60 per-run summaries, the aggregate tables and the validation log are kept in the project repository. \textbf{[Add repository link here once public.]}
+The pilot's raw per-run files, the 60 per-run summaries, the aggregate tables and the validation log are kept in the project repository. Repository: \url{https://github.com/Perera1325/kubernetes-ready-to-functional-gap}
 
 \section*{Acknowledgements}
 An AI assistant (Claude, Anthropic) helped with scripting, analysis and drafting. I checked the numbers against the raw summaries and take responsibility for the content.
