@@ -1,0 +1,13 @@
+t_ns,name,replica,detail
+923525057703,dep_launch,,
+924635012471,dep_loaded,,
+924679062754,replica_launch,r0.1,
+924730979083,app_listen,r0.1,
+924740843726,replica_launch,r1.1,
+924790244310,app_listen,r1.1,
+924982808815,ready,r0.1,
+925297048198,ready,r1.1,
+927011518899,steady,,
+930011671586,fault,,
+933015152224,recover,r0.1,
+937266811138,end,,

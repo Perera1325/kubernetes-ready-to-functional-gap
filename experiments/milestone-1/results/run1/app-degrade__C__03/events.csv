@@ -1,0 +1,13 @@
+t_ns,name,replica,detail
+775434464366,dep_launch,,
+776718152813,dep_loaded,,
+776741842817,replica_launch,r0.1,
+776793047065,app_listen,r0.1,
+776803853035,replica_launch,r1.1,
+776856851169,app_listen,r1.1,
+777098115333,ready,r0.1,
+777844584760,ready,r1.1,
+779075198340,steady,,
+782075331582,fault,,
+785080253393,recover,r0.1,
+789332066743,end,,

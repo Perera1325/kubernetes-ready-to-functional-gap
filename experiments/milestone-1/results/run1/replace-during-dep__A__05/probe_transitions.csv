@@ -1,0 +1,8 @@
+t_ns,replica,ready,detail
+1235521791334,r0.1,False,launch
+1235919271839,r0.1,True,200
+1243918283650,r0.1,False,ConnectionRefusedError
+1235583417372,r1.1,False,launch
+1236123871300,r1.1,True,200
+1241987802606,r0.2,False,launch
+1242958694317,r0.2,True,200

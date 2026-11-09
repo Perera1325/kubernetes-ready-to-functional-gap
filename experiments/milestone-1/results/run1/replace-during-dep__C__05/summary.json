@@ -1,0 +1,76 @@
+{
+ "scenario": "replace-during-dep",
+ "arm": "C",
+ "t_fault_s": 0.0,
+ "pre_fault_invalid_G": 0,
+ "pre_fault_invalid_U": 0,
+ "per_replica": {
+  "r0.2": {
+   "degradation_onset_s": 1.019806107,
+   "t_func_s": 2.820027216,
+   "t_container_ready_s": 1.984037714,
+   "t_pod_ready_s": 1.984037714,
+   "rfg_observe_s": 0.835989502,
+   "rfg_cr_s": 0.835989502,
+   "ready_nonfunctional_s": 0.8,
+   "false_notready_s": 0,
+   "manifested": true,
+   "recovered": true
+  },
+  "r1.1": {
+   "degradation_onset_s": 0.019786631,
+   "t_func_s": 3.569845887,
+   "t_container_ready_s": null,
+   "t_pod_ready_s": null,
+   "rfg_observe_s": null,
+   "rfg_cr_s": null,
+   "ready_nonfunctional_s": 3.5500000000000003,
+   "false_notready_s": 0,
+   "manifested": true,
+   "recovered": true
+  }
+ },
+ "rfg_observe_max_s": 0.835989502,
+ "ready_nonfunctional_s": 4.3500000000000005,
+ "false_notready_s": 0,
+ "replicas_recovered": true,
+ "stale_ready_s": 2.98826693,
+ "tx_error_duration_s": 3.450021365,
+ "tx_recovered": true,
+ "tx_window_requests": 69,
+ "tx_invalid_business": 36,
+ "tx_no_endpoints": 0,
+ "tx_conn_error": 29,
+ "tx_http_error": 0,
+ "tx_fail_fraction": 0.9420289855072463,
+ "static_error_duration_s": 1.899590899,
+ "static_recovered": true,
+ "static_window_requests": 19,
+ "static_invalid_business": 0,
+ "static_no_endpoints": 0,
+ "static_conn_error": 10,
+ "static_http_error": 0,
+ "static_fail_fraction": 0.5263157894736842,
+ "zero_endpoint_s": 0.0,
+ "observer": {
+  "r0.2": {
+   "detect_loss_s": null,
+   "functional_latency_vs_truth_s": -0.085728132,
+   "functional_after_window_start_s": 0.964328,
+   "false_functional": false,
+   "declared_functional": true
+  },
+  "r1.1": {
+   "detect_loss_s": -0.011219042,
+   "functional_latency_vs_truth_s": -0.161260258,
+   "functional_after_window_start_s": 0.838741502,
+   "false_functional": false,
+   "declared_functional": true
+  }
+ },
+ "probe_requests": 19,
+ "dep_ops_probe": 0,
+ "app_cpu_s": 1.1099999999999999,
+ "observer_requests": 91,
+ "run_id": "replace-during-dep__C__05"
+}

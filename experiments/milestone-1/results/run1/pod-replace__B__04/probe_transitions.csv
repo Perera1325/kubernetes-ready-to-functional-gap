@@ -1,0 +1,8 @@
+t_ns,replica,ready,detail
+983393312409,r0.1,False,launch
+983697265458,r0.1,True,200
+991696427373,r0.1,False,ConnectionRefusedError
+983434929202,r1.1,False,launch
+983989535511,r1.1,True,200
+988708240234,r0.2,False,launch
+989347647987,r0.2,True,200

@@ -1,0 +1,8 @@
+t_ns,replica,ready,detail
+969010539210,r0.1,False,launch
+969314210635,r0.1,True,200
+977313606914,r0.1,False,ConnectionRefusedError
+969072492113,r1.1,False,launch
+969626330325,r1.1,True,200
+974366476976,r0.2,False,launch
+975006062677,r0.2,True,200

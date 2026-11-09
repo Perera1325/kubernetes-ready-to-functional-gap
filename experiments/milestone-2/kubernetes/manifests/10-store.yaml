@@ -1,0 +1,49 @@
+# Dependency: single-replica StatefulSet with a PVC holding the WAL. Readiness is a plain TCP check (the realistic "shallow" check
+# for such a store): the store accepts connections immediately and answers -LOADING while it replays, exactly like the M1 store.
+apiVersion: v1
+kind: Service
+metadata: {name: rfg-store-hl, namespace: rfg, labels: {app: rfg-store}}
+spec:
+  clusterIP: None
+  selector: {app: rfg-store}
+  ports: [{name: store, port: 6380, targetPort: 6380}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: rfg-store, namespace: rfg, labels: {app: rfg-store}}
+spec:
+  type: ClusterIP
+  selector: {app: rfg-store}
+  ports: [{name: store, port: 6380, targetPort: 6380}]
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: {name: rfg-store, namespace: rfg, labels: {app: rfg-store}}
+spec:
+  serviceName: rfg-store-hl
+  replicas: 1
+  selector: {matchLabels: {app: rfg-store}}
+  template:
+    metadata: {labels: {app: rfg-store}}
+    spec:
+      terminationGracePeriodSeconds: 1
+      securityContext: {fsGroup: 10001}
+      containers:
+        - name: store
+          image: rfg-store:m2a
+          imagePullPolicy: Never          # images are loaded into Kind nodes (kind load); nothing is pulled at runtime
+          args: ["--bind-address", "0.0.0.0", "--port", "6380", "--wal", "/data/store.wal", "--make-wal-if-missing", "100000", "800000"]
+          ports: [{name: store, containerPort: 6380}]
+          readinessProbe:
+            tcpSocket: {port: 6380}
+            periodSeconds: 1
+            timeoutSeconds: 1
+            failureThreshold: 3
+            successThreshold: 1
+          resources: {requests: {cpu: 100m, memory: 256Mi}}
+          volumeMounts: [{name: data, mountPath: /data}]
+  volumeClaimTemplates:
+    - metadata: {name: data}
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources: {requests: {storage: 1Gi}}

@@ -1,0 +1,76 @@
+{
+ "scenario": "replace-during-dep",
+ "arm": "C",
+ "t_fault_s": 0.0,
+ "pre_fault_invalid_G": 0,
+ "pre_fault_invalid_U": 0,
+ "per_replica": {
+  "r0.2": {
+   "degradation_onset_s": 1.015975246,
+   "t_func_s": 3.066167167,
+   "t_container_ready_s": 1.955923523,
+   "t_pod_ready_s": 1.955923523,
+   "rfg_observe_s": 1.110243644,
+   "rfg_cr_s": 1.110243644,
+   "ready_nonfunctional_s": 1.1,
+   "false_notready_s": 0,
+   "manifested": true,
+   "recovered": true
+  },
+  "r1.1": {
+   "degradation_onset_s": 0.028359455,
+   "t_func_s": 3.678410141,
+   "t_container_ready_s": null,
+   "t_pod_ready_s": null,
+   "rfg_observe_s": null,
+   "rfg_cr_s": null,
+   "ready_nonfunctional_s": 3.6500000000000004,
+   "false_notready_s": 0,
+   "manifested": true,
+   "recovered": true
+  }
+ },
+ "rfg_observe_max_s": 1.110243644,
+ "ready_nonfunctional_s": 4.75,
+ "false_notready_s": 0,
+ "replicas_recovered": true,
+ "stale_ready_s": 2.007358395,
+ "tx_error_duration_s": 3.59997532,
+ "tx_recovered": true,
+ "tx_window_requests": 72,
+ "tx_invalid_business": 46,
+ "tx_no_endpoints": 0,
+ "tx_conn_error": 20,
+ "tx_http_error": 0,
+ "tx_fail_fraction": 0.9166666666666666,
+ "static_error_duration_s": 1.900017017,
+ "static_recovered": true,
+ "static_window_requests": 19,
+ "static_invalid_business": 0,
+ "static_no_endpoints": 0,
+ "static_conn_error": 9,
+ "static_http_error": 0,
+ "static_fail_fraction": 0.47368421052631576,
+ "zero_endpoint_s": 0.0,
+ "observer": {
+  "r0.2": {
+   "detect_loss_s": null,
+   "functional_latency_vs_truth_s": -0.160025728,
+   "functional_after_window_start_s": 0.889953713,
+   "false_functional": false,
+   "declared_functional": true
+  },
+  "r1.1": {
+   "detect_loss_s": 0.132877713,
+   "functional_latency_vs_truth_s": -0.117271619,
+   "functional_after_window_start_s": 0.8828266,
+   "false_functional": false,
+   "declared_functional": true
+  }
+ },
+ "probe_requests": 19,
+ "dep_ops_probe": 0,
+ "app_cpu_s": 1.16,
+ "observer_requests": 91,
+ "run_id": "replace-during-dep__C__03"
+}

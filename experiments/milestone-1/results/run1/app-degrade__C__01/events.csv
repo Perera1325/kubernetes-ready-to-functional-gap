@@ -1,0 +1,13 @@
+t_ns,name,replica,detail
+417334022892,dep_launch,,
+418346122493,dep_loaded,,
+418389365391,replica_launch,r0.1,
+418436969990,app_listen,r0.1,
+418451190844,replica_launch,r1.1,
+418500050917,app_listen,r1.1,
+419171692437,ready,r1.1,
+419320774898,ready,r0.1,
+421223847970,steady,,
+424223968129,fault,,
+427228245102,recover,r0.1,
+431479809190,end,,

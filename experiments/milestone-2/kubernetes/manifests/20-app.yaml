@@ -1,0 +1,70 @@
+# Arm A/C = shallow probe (process alive). Arm B = deep probe (dependency PING + cache warm). Arm C adds a detection-only observer in the collector.
+apiVersion: v1
+kind: Service
+metadata: {name: rfg-app, namespace: rfg, labels: {app: rfg-app}}
+spec:
+  type: ClusterIP
+  selector: {app: rfg-app}                 # matches both arms' pods; only one arm is scaled up at a time
+  ports: [{name: http, port: 8080, targetPort: 8080}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: rfg-app-shallow, namespace: rfg, labels: {app: rfg-app, rfg-deployment: rfg-app-shallow}}
+spec:
+  replicas: 0                              # scaled by the collector: exactly one arm is scaled to 2 at a time
+  selector: {matchLabels: {rfg-deployment: rfg-app-shallow}}
+  template:
+    metadata: {labels: {app: rfg-app, rfg-arm: "A", rfg-deployment: rfg-app-shallow}}
+    spec:
+      terminationGracePeriodSeconds: 1
+      topologySpreadConstraints:
+        - {maxSkew: 1, topologyKey: kubernetes.io/hostname, whenUnsatisfiable: ScheduleAnyway, labelSelector: {matchLabels: {rfg-deployment: rfg-app-shallow}}}
+      containers:
+        - name: app
+          image: rfg-app:m2a
+          imagePullPolicy: Never
+          args: ["--bind-address", "0.0.0.0", "--http-port", "8080", "--health-port", "8081",
+                 "--dep-host", "rfg-store.rfg.svc.cluster.local", "--dep-port", "6380",
+                 "--cache-keys", "100000", "--backoff-base", "0.5", "--backoff-cap", "8.0"]
+          env: [{name: POD_NAME, valueFrom: {fieldRef: {fieldPath: metadata.name}}}]
+          ports: [{name: http, containerPort: 8080}, {name: health, containerPort: 8081}]
+          readinessProbe:                  # REAL kubelet probe. Milestone 2-A pilot: period 1 s (no 10 s sweep)
+            httpGet: {path: /healthz/shallow, port: 8081}
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          # no livenessProbe / startupProbe: identical to Milestone 1 (only readiness is under study)
+          resources: {requests: {cpu: 100m, memory: 256Mi}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: rfg-app-deep, namespace: rfg, labels: {app: rfg-app, rfg-deployment: rfg-app-deep}}
+spec:
+  replicas: 0                              # scaled by the collector: exactly one arm is scaled to 2 at a time
+  selector: {matchLabels: {rfg-deployment: rfg-app-deep}}
+  template:
+    metadata: {labels: {app: rfg-app, rfg-arm: "B", rfg-deployment: rfg-app-deep}}
+    spec:
+      terminationGracePeriodSeconds: 1
+      topologySpreadConstraints:
+        - {maxSkew: 1, topologyKey: kubernetes.io/hostname, whenUnsatisfiable: ScheduleAnyway, labelSelector: {matchLabels: {rfg-deployment: rfg-app-deep}}}
+      containers:
+        - name: app
+          image: rfg-app:m2a
+          imagePullPolicy: Never
+          args: ["--bind-address", "0.0.0.0", "--http-port", "8080", "--health-port", "8081",
+                 "--dep-host", "rfg-store.rfg.svc.cluster.local", "--dep-port", "6380",
+                 "--cache-keys", "100000", "--backoff-base", "0.5", "--backoff-cap", "8.0"]
+          env: [{name: POD_NAME, valueFrom: {fieldRef: {fieldPath: metadata.name}}}]
+          ports: [{name: http, containerPort: 8080}, {name: health, containerPort: 8081}]
+          readinessProbe:                  # REAL kubelet probe. Milestone 2-A pilot: period 1 s (no 10 s sweep)
+            httpGet: {path: /healthz/deep, port: 8081}
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          # no livenessProbe / startupProbe: identical to Milestone 1 (only readiness is under study)
+          resources: {requests: {cpu: 100m, memory: 256Mi}}

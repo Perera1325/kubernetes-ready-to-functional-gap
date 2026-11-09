@@ -1,0 +1,19 @@
+# Rendered by scripts/run-collector.sh (substitutes __NAME__ and __ARGS__). The pod stays alive after the run so results can be copied out.
+apiVersion: v1
+kind: Pod
+metadata: {name: rfg-collector, namespace: rfg, labels: {role: rfg-collector}}
+spec:
+  serviceAccountName: rfg-collector
+  restartPolicy: Never
+  securityContext: {fsGroup: 10001}
+  containers:
+    - name: collector
+      image: rfg-collector:m2a
+      imagePullPolicy: Never
+      command: ["/bin/sh", "-c"]
+      args: ["python /app/collector.py run --out /results/__NAME__ __ARGS__ > /results/__NAME__.log 2>&1; echo $? > /results/__NAME__.EXIT; sleep 86400"]
+      resources: {requests: {cpu: 200m, memory: 256Mi}}
+      volumeMounts: [{name: config, mountPath: /config}, {name: results, mountPath: /results}]
+  volumes:
+    - {name: config, configMap: {name: rfg-config}}
+    - {name: results, persistentVolumeClaim: {claimName: rfg-results}}

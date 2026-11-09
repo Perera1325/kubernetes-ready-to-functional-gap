@@ -1,0 +1,8 @@
+t_ns,replica,ready,detail
+627365952544,r0.1,False,launch
+627671121128,r0.1,True,200
+635670261589,r0.1,False,ConnectionRefusedError
+627448983537,r1.1,False,launch
+628177013549,r1.1,True,200
+632721864841,r0.2,False,launch
+633038356191,r0.2,True,200

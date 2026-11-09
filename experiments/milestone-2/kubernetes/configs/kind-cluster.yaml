@@ -1,0 +1,12 @@
+# 1 control-plane + 2 workers. Node image pinned by tag (kind v0.25.0 pairs with kindest/node v1.31.2; verify against the
+# release notes of the kind version you install). Digest pinning: see scripts/pin-digests.sh.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: rfg
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.31.2
+  - role: worker
+    image: kindest/node:v1.31.2
+  - role: worker
+    image: kindest/node:v1.31.2

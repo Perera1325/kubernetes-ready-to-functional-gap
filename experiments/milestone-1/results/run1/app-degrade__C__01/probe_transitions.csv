@@ -1,0 +1,5 @@
+t_ns,replica,ready,detail
+418389365391,r0.1,False,launch
+419320774898,r0.1,True,200
+418451190844,r1.1,False,launch
+419171692437,r1.1,True,200

@@ -1,0 +1,23 @@
+id,title,url,date_accessed,type,notes
+S1,kubernetes/autoscaler issue 9287,https://github.com/kubernetes/autoscaler/issues/9287,2026-11-09,github issue,body read via GitHub search API
+S2,kubernetes/kubernetes issue 116965,https://github.com/kubernetes/kubernetes/issues/116965,2026-11-09,github issue,body read via search API
+S3,kubernetes/kubernetes issue 112016,https://github.com/kubernetes/kubernetes/issues/112016,2026-11-09,github issue,body only
+S4,kubernetes/enhancements @72907de,https://github.com/kubernetes/enhancements,2026-11-09,repo clone,KEP metadata read locally
+S5,kubernetes/autoscaler git history,https://github.com/kubernetes/autoscaler,2026-11-09,repo clone,blobless clone; commits 2511e4485 (#8164) 20daa9b09 (#9288)
+S6,kubernetes/kubernetes @0e074fb pkg/kubelet/prober,https://github.com/kubernetes/kubernetes,2026-11-09,repo sparse clone,partial read of prober_manager.go and worker.go
+S7,Sieve OSDI'22,https://www.usenix.org/conference/osdi22/presentation/sun,2026-11-09,paper,
+S8,Acto SOSP'23,https://cs.cornell.edu/~legunsen/pubs/GuETAlActoSOSP23.pdf,2026-11-09,paper,
+S9,OAT NSDI'26,https://www.usenix.org/conference/nsdi26/presentation/gu,2026-11-09,paper,
+S10,Kivi,https://arxiv.org/pdf/2311.02800,2026-11-09,paper,
+S11,Metastable Failures in the Wild,https://usenix.org/conference/osdi22/presentation/huang-lexiang,2026-11-09,paper,
+S12,Gray Failure HotOS'17,https://www.microsoft.com/en-us/research/publication/gray-failure-achilles-heel-cloud-scale-systems/,2026-11-09,paper,
+S13,Autoscaler vulnerabilities arXiv 2601.04659,https://arxiv.org/abs/2601.04659,2026-11-09,preprint,
+S14,Kubernetes vs functional recovery (Ollama experiments),https://dzone.com/articles/kubernetes-llm-readiness,2026-11-09,practitioner blog,weak evidence; single author; Ready-to-inference gap 3.8-14.3 s
+S15,Krkn 4-phase chaos blueprint (Red Hat),https://developers.redhat.com/articles/2026/10/22/kubernetes-resilience-with-krkn-4-phase-chaos-engineering-blueprint,2026-11-09,vendor article,states Ready pod does not prove transactions succeed
+S16,CNCF blog: DR guidance from three failure scenarios,https://www.cncf.io/blog/2026/09/10/kubernetes-disaster-recovery-guidance-from-three-reproducible-failure-scenarios/,2026-11-09,CNCF blog,
+S17,Expedia: software resiliency on Kubernetes,https://medium.com/expedia-group-tech/an-exercise-in-software-resiliency-on-kubernetes-a241dd1c6f7b,2026-11-09,engineering blog,Ready leader vs follower; liveness did not check function
+S18,Longhorn node failure docs,https://longhorn.io/docs/1.0.1/high-availability/node-failure/,2026-11-09,vendor docs,~6 min VolumeAttachment cleanup
+S19,Chen et al. cloud-edge K8s fault injection,https://arxiv.org/html/2507.16109v1,2026-11-09,preprint,app-level latency/error metrics under Chaos Mesh+Locust
+E1,Milestone 1 raw measurements (60 runs),experiments/milestone-1/results/run1,2026-11-09,own experiment,LOCAL SIMULATION no Kubernetes; supersedes nothing in S1-S19
+E2,Milestone 1 test output (21 tests pass),experiments/milestone-1/results/test_output.txt,2026-11-09,own validation,
+E3,Environment inspection (no Docker daemon/kubectl/kind; registries blocked),experiments/milestone-1/README.md,2026-11-09,own observation,

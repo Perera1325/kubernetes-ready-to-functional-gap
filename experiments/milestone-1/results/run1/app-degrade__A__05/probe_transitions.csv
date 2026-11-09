@@ -1,0 +1,5 @@
+t_ns,replica,ready,detail
+1103427023749,r0.1,False,launch
+1103824172452,r0.1,True,200
+1103530356170,r1.1,False,launch
+1104069443582,r1.1,True,200

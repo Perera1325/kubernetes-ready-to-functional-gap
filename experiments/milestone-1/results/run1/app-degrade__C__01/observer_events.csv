@@ -1,0 +1,5 @@
+t_ns,replica,event
+419972049255,r1.1,functional
+420121460375,r0.1,functional
+424320990525,r0.1,functional_lost
+428321405818,r0.1,functional

@@ -1,0 +1,7 @@
+date_utc: 2026-11-09T08:47:17Z
+uname: Linux vm 6.18.44-fc-v310 #1 SMP @0 x86_64 x86_64 x86_64 GNU/Linux
+cpus: 2
+mem_gib: 7.8
+docker: 29.9.2 / server 
+kind: ./scripts/preflight.sh: line 9: kind: command not found
+kubectl: ./scripts/preflight.sh: line 9: kubectl: command not found

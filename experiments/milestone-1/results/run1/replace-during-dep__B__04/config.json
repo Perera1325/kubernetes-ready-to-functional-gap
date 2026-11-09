@@ -1,0 +1,55 @@
+{
+ "replicas": 2,
+ "probe": {
+  "period_s": 1.0,
+  "timeout_s": 0.8,
+  "failure_threshold": 3,
+  "success_threshold": 1,
+  "initial_delay_s": 0.0
+ },
+ "store": {
+  "items": 100000,
+  "fill": 800000
+ },
+ "cache_keys": 100000,
+ "app": {
+  "backoff_base_s": 0.5,
+  "backoff_cap_s": 8.0
+ },
+ "oracle_hz": 20,
+ "user": {
+  "tx_hz": 20,
+  "static_hz": 10,
+  "n": 20,
+  "span_s": 1.0
+ },
+ "truth": {
+  "n": 20,
+  "span_s": 1.0
+ },
+ "observer": {
+  "hz": 5,
+  "n": 5,
+  "guard_s": 2.0
+ },
+ "scenario_params": {
+  "degrade_hold_s": 3.0,
+  "dep_downtime_s": 1.0
+ },
+ "steady_hold_s": 3.0,
+ "min_post_s": 4.0,
+ "max_post_s": 45.0,
+ "tail_s": 2.0,
+ "_run": {
+  "run_id": "replace-during-dep__B__04",
+  "scenario": "replace-during-dep",
+  "arm": "B",
+  "rep": 4,
+  "seed": 4,
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v310-x86_64-with-glibc2.39",
+  "cpus": 2,
+  "kind": "LOCAL SIMULATION (no Kubernetes)",
+  "wall_start": "2026-11-09T13:52:37+0530"
+ }
+}

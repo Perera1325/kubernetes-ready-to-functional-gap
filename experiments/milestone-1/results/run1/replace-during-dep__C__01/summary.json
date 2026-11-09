@@ -1,0 +1,76 @@
+{
+ "scenario": "replace-during-dep",
+ "arm": "C",
+ "t_fault_s": 0.0,
+ "pre_fault_invalid_G": 0,
+ "pre_fault_invalid_U": 0,
+ "per_replica": {
+  "r0.2": {
+   "degradation_onset_s": 1.015166356,
+   "t_func_s": 2.815283792,
+   "t_container_ready_s": 1.530179768,
+   "t_pod_ready_s": 1.530179768,
+   "rfg_observe_s": 1.285104024,
+   "rfg_cr_s": 1.285104024,
+   "ready_nonfunctional_s": 1.25,
+   "false_notready_s": 0,
+   "manifested": true,
+   "recovered": true
+  },
+  "r1.1": {
+   "degradation_onset_s": 0.030313812,
+   "t_func_s": 3.58025482,
+   "t_container_ready_s": null,
+   "t_pod_ready_s": null,
+   "rfg_observe_s": null,
+   "rfg_cr_s": null,
+   "ready_nonfunctional_s": 3.5500000000000003,
+   "false_notready_s": 0,
+   "manifested": true,
+   "recovered": true
+  }
+ },
+ "rfg_observe_max_s": 1.285104024,
+ "ready_nonfunctional_s": 4.800000000000001,
+ "false_notready_s": 0,
+ "replicas_recovered": true,
+ "stale_ready_s": 2.089444677,
+ "tx_error_duration_s": 3.450015586,
+ "tx_recovered": true,
+ "tx_window_requests": 69,
+ "tx_invalid_business": 42,
+ "tx_no_endpoints": 0,
+ "tx_conn_error": 21,
+ "tx_http_error": 0,
+ "tx_fail_fraction": 0.9130434782608695,
+ "static_error_duration_s": 1.500018362,
+ "static_recovered": true,
+ "static_window_requests": 15,
+ "static_invalid_business": 0,
+ "static_no_endpoints": 0,
+ "static_conn_error": 8,
+ "static_http_error": 0,
+ "static_fail_fraction": 0.5333333333333333,
+ "zero_endpoint_s": 0.0,
+ "observer": {
+  "r0.2": {
+   "detect_loss_s": null,
+   "functional_latency_vs_truth_s": -0.134605443,
+   "functional_after_window_start_s": 0.91545897,
+   "false_functional": false,
+   "declared_functional": true
+  },
+  "r1.1": {
+   "detect_loss_s": 0.120286095,
+   "functional_latency_vs_truth_s": -0.029775021,
+   "functional_after_window_start_s": 0.9702742,
+   "false_functional": false,
+   "declared_functional": true
+  }
+ },
+ "probe_requests": 20,
+ "dep_ops_probe": 0,
+ "app_cpu_s": 1.1600000000000001,
+ "observer_requests": 95,
+ "run_id": "replace-during-dep__C__01"
+}

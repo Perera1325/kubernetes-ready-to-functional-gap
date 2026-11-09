@@ -1,0 +1,8 @@
+t_ns,replica,ready,detail
+447679207639,r0.1,False,launch
+448611103230,r0.1,True,200
+455610318926,r0.1,False,ConnectionRefusedError
+447741928785,r1.1,False,launch
+448462551422,r1.1,True,200
+453513303607,r0.2,False,launch
+454033498041,r0.2,True,200

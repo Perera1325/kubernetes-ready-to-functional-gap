@@ -1,0 +1,8 @@
+t_ns,replica,ready,detail
+791401640619,r0.1,False,launch
+791758023169,r0.1,True,200
+798757639515,r0.1,False,ConnectionRefusedError
+791464092239,r1.1,False,launch
+792501892004,r1.1,True,200
+796756522543,r0.2,False,launch
+797701347594,r0.2,True,200

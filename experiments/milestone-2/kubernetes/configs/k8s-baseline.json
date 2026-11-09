@@ -1,0 +1,22 @@
+{
+ "_comment": "Milestone 2-A (REAL Kubernetes, Kind). Measurement parameters are identical to Milestone 1 baseline.json except where k8s forces a difference (see README 'Deviations from M1').",
+ "replicas": 2,
+ "probe": {"period_s": 1, "timeout_s": 1, "failure_threshold": 3, "success_threshold": 1, "initial_delay_s": 0,
+           "note": "These values are rendered into the Deployment manifests (kubelet probes). timeoutSeconds is an integer >=1 in Kubernetes (M1 simulation used 0.8 s)."},
+ "store": {"items": 100000, "fill": 800000},
+ "cache_keys": 100000,
+ "app": {"backoff_base_s": 0.5, "backoff_cap_s": 8.0},
+ "oracle_hz": 20,
+ "user": {"tx_hz": 20, "static_hz": 10, "n": 20, "span_s": 1.0},
+ "truth": {"n": 20, "span_s": 1.0},
+ "observer": {"hz": 5, "n": 5, "guard_s": 2.0},
+ "scenario_params": {"degrade_hold_s": 3.0, "dep_downtime_s": "not a parameter on Kubernetes: downtime is whatever delete->recreate->start->WAL-replay takes"},
+ "steady_hold_s": 3.0, "min_post_s": 4.0, "max_post_s": 120.0, "tail_s": 2.0,
+ "k8s": {
+  "namespace": "rfg", "service_name": "rfg-app", "service_host": "rfg-app.rfg.svc.cluster.local", "service_port": 8080,
+  "app_port": 8080, "health_port": 8081,
+  "store_host": "rfg-store.rfg.svc.cluster.local", "store_port": 6380, "store_service": "rfg-store", "store_pod": "rfg-store-0",
+  "deployments": {"A": "rfg-app-shallow", "B": "rfg-app-deep", "C": "rfg-app-shallow"},
+  "d_hz": 10
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "scenario": "pod-replace",
+ "arm": "C",
+ "t_fault_s": 0.0,
+ "pre_fault_invalid_G": 0,
+ "pre_fault_invalid_U": 0,
+ "per_replica": {
+  "r0.2": {
+   "degradation_onset_s": 0.002510315,
+   "t_func_s": 0.252699204,
+   "t_container_ready_s": 0.946956562,
+   "t_pod_ready_s": 0.946956562,
+   "rfg_observe_s": -0.694257358,
+   "rfg_cr_s": -0.694257358,
+   "ready_nonfunctional_s": 0,
+   "false_notready_s": 0.7000000000000001,
+   "manifested": true,
+   "recovered": true
+  }
+ },
+ "rfg_observe_max_s": -0.694257358,
+ "ready_nonfunctional_s": 0,
+ "false_notready_s": 0.7000000000000001,
+ "replicas_recovered": true,
+ "stale_ready_s": 2.021609253,
+ "tx_error_duration_s": 1.949975888,
+ "tx_recovered": true,
+ "tx_window_requests": 39,
+ "tx_invalid_business": 0,
+ "tx_no_endpoints": 0,
+ "tx_conn_error": 19,
+ "tx_http_error": 0,
+ "tx_fail_fraction": 0.48717948717948717,
+ "static_error_duration_s": 0.899967074,
+ "static_recovered": true,
+ "static_window_requests": 9,
+ "static_invalid_business": 0,
+ "static_no_endpoints": 0,
+ "static_conn_error": 5,
+ "static_http_error": 0,
+ "static_fail_fraction": 0.5555555555555556,
+ "zero_endpoint_s": 0.0,
+ "observer": {
+  "r0.2": {
+   "detect_loss_s": null,
+   "functional_latency_vs_truth_s": 0.444627435,
+   "functional_after_window_start_s": 1.494554363,
+   "false_functional": false,
+   "declared_functional": true
+  }
+ },
+ "probe_requests": 17,
+ "dep_ops_probe": 0,
+ "app_cpu_s": 0.97,
+ "observer_requests": 78,
+ "run_id": "pod-replace__C__03"
+}

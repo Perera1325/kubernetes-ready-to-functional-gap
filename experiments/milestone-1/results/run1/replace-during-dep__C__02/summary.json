@@ -1,0 +1,76 @@
+{
+ "scenario": "replace-during-dep",
+ "arm": "C",
+ "t_fault_s": 0.0,
+ "pre_fault_invalid_G": 0,
+ "pre_fault_invalid_U": 0,
+ "per_replica": {
+  "r0.2": {
+   "degradation_onset_s": 1.024020328,
+   "t_func_s": 2.87417003,
+   "t_container_ready_s": 1.339393915,
+   "t_pod_ready_s": 1.339393915,
+   "rfg_observe_s": 1.534776115,
+   "rfg_cr_s": 1.534776115,
+   "ready_nonfunctional_s": 1.5,
+   "false_notready_s": 0,
+   "manifested": true,
+   "recovered": true
+  },
+  "r1.1": {
+   "degradation_onset_s": 0.032090836,
+   "t_func_s": 3.63210735,
+   "t_container_ready_s": null,
+   "t_pod_ready_s": null,
+   "rfg_observe_s": null,
+   "rfg_cr_s": null,
+   "ready_nonfunctional_s": 3.6,
+   "false_notready_s": 0,
+   "manifested": true,
+   "recovered": true
+  }
+ },
+ "rfg_observe_max_s": 1.534776115,
+ "ready_nonfunctional_s": 5.1,
+ "false_notready_s": 0,
+ "replicas_recovered": true,
+ "stale_ready_s": 2.957682288,
+ "tx_error_duration_s": 3.449939352,
+ "tx_recovered": true,
+ "tx_window_requests": 69,
+ "tx_invalid_business": 35,
+ "tx_no_endpoints": 0,
+ "tx_conn_error": 28,
+ "tx_http_error": 0,
+ "tx_fail_fraction": 0.9130434782608695,
+ "static_error_duration_s": 1.500037165,
+ "static_recovered": true,
+ "static_window_requests": 15,
+ "static_invalid_business": 0,
+ "static_no_endpoints": 0,
+ "static_conn_error": 8,
+ "static_http_error": 0,
+ "static_fail_fraction": 0.5333333333333333,
+ "zero_endpoint_s": 0.0,
+ "observer": {
+  "r0.2": {
+   "detect_loss_s": null,
+   "functional_latency_vs_truth_s": -0.134377137,
+   "functional_after_window_start_s": 0.865691104,
+   "false_functional": false,
+   "declared_functional": true
+  },
+  "r1.1": {
+   "detect_loss_s": 0.027492409,
+   "functional_latency_vs_truth_s": -0.172593382,
+   "functional_after_window_start_s": 0.827418272,
+   "false_functional": false,
+   "declared_functional": true
+  }
+ },
+ "probe_requests": 20,
+ "dep_ops_probe": 0,
+ "app_cpu_s": 1.12,
+ "observer_requests": 93,
+ "run_id": "replace-during-dep__C__02"
+}

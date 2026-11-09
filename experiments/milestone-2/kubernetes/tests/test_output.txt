@@ -1,0 +1,31 @@
+# Milestone 2-A test run 2026-11-09T08:47:33Z
+# Mock-API / static / parity tests only. NO Kubernetes cluster was available; none of these tests exercise real kubelet, probes or EndpointSlices.
+test_m1_analysis_copy_is_byte_identical (test_collector_mock_api.TestRunLogicAndAnalysis.test_m1_analysis_copy_is_byte_identical) ... ok
+test_replacement_gets_logical_name_and_transitions (test_collector_mock_api.TestRunLogicAndAnalysis.test_replacement_gets_logical_name_and_transitions) ... ok
+test_validation_logic_byte_identical_to_m1 (test_collector_mock_api.TestRunLogicAndAnalysis.test_validation_logic_byte_identical_to_m1) ... ok
+test_write_and_analyze_constructed_run (test_collector_mock_api.TestRunLogicAndAnalysis.test_write_and_analyze_constructed_run) ... ok
+test_fault_requests_have_expected_shape (test_collector_mock_api.TestWatch.test_fault_requests_have_expected_shape) ... ok
+test_list_watch_order_reconnect_and_endpoint_transitions (test_collector_mock_api.TestWatch.test_list_watch_order_reconnect_and_endpoint_transitions) ... ok
+test_all_yaml_parses (test_manifests.T.test_all_yaml_parses) ... ok
+test_dockerfile_copy_sources_exist_and_bases_pinned (test_manifests.T.test_dockerfile_copy_sources_exist_and_bases_pinned) ... ok
+test_kind_topology (test_manifests.T.test_kind_topology) ... ok
+test_no_public_pull_at_runtime (test_manifests.T.test_no_public_pull_at_runtime) ... ok
+test_probes_match_config_and_arms (test_manifests.T.test_probes_match_config_and_arms) ... ok
+test_rbac_covers_what_collector_does (test_manifests.T.test_rbac_covers_what_collector_does) ... ok
+test_store_and_services (test_manifests.T.test_store_and_services) ... ok
+test_default_bind_is_loopback_and_flag_changes_it (test_new_flags.TestFlags.test_default_bind_is_loopback_and_flag_changes_it) ... ok
+test_port_alias_backcompat (test_new_flags.TestFlags.test_port_alias_backcompat) ... LISTENING replica=t1 http=49255 health=49255
+ok
+test_store_make_if_missing_and_dep_host_and_health_port (test_new_flags.TestFlags.test_store_make_if_missing_and_dep_host_and_health_port) ... LISTENING replica=t0 http=39727 health=37463
+ok
+test_degraded_app_is_shallow_ready_but_functionally_invalid (test_parity_app_store.TestStoreAndApp.test_degraded_app_is_shallow_ready_but_functionally_invalid) ... ok
+test_store_loading_then_app_primary_and_deep_health (test_parity_app_store.TestStoreAndApp.test_store_loading_then_app_primary_and_deep_health) ... ok
+test_classify (test_parity_app_store.TestValidation.test_classify) ... ok
+test_http200_fallback_is_invalid (test_parity_app_store.TestValidation.test_http200_fallback_is_invalid) ... ok
+test_valid (test_parity_app_store.TestValidation.test_valid) ... ok
+test_wrong_value_and_price_and_id (test_parity_app_store.TestValidation.test_wrong_value_and_price_and_id) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 3.049s
+
+OK
